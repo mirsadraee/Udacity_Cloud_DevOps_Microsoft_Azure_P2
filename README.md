@@ -25,24 +25,63 @@ This project will operationalize a Python flask app—in a provided file, `app.p
 
 ## Instructions
 ### CI: Set Up Azure Cloud Shell
-![ACS](./images/azure-cloud-shell.png "SCS")
+![ACS](./images/azure-cloud-shell.png "ACS")
 
-1. Create the Cloud-Based Development Environment:
+#### Create the Cloud-Based Development Environment:
 
-   An initial project structure is the Azure Cloud Shell envirnoment is set up. A git repository is created and an Azure Cloud Shell environment is launched and Github Repository communication is integrated.
+An initial project structure is the Azure Cloud Shell envirnoment is set up. A git repository is created and an Azure Cloud Shell environment is launched and Github Repository communication is integrated.
 
-   To clone the Github repository, following command has to be used in the Azure Cloud Shell:
-   `git clone git@github.com:mirsadraee/Udacity_Cloud_DevOps_Microsoft_Azure_P2.git`
+For connecting to Github repository, it is needed to generate a ssh-key:
 
-   A virtual environment has to be setup:
-   `make setup`
+`ssh-keygen -t rsa`
 
-   Activate the virtual environment:
-   `source ~/.udacity-devops/bin/activate`
+![ssh-key](./images/ssh-key.png "ssh-key")
 
+to show ssh-key:
 
+`cat ~/.ssh/id_rsa.pub`
 
-2. Create Project Scaffolding
+To clone the Github repository, following command has to be used in the Azure Cloud Shell:
+
+`git clone git@github.com:mirsadraee/Udacity_Cloud_DevOps_Microsoft_Azure_P2.git`
+
+![git_clone](./images/git_clone.png "git_clone")
+
+A virtual environment has to be setup:
+
+`make setup`
+
+Activate the virtual environment:
+
+`source ~/.udacity-devops/bin/activate`
+
+Install dependencies in th evirtual environment:
+
+`make all`
+
+![make_all](./images/make_all.png "make_all")
+
+Now we can run the application in the trerminal susing:
+
+`python app.py`
+
+As the application is now running, we have to open a new terminal and test the application using:
+
+`./make_prediction.sh`
+
+The output is then:
+
+[ACS](./images/results_1.png "ACS")
+
+we can check on the first terminal the progress of the applcaition:
+
+```bash
+udacity@Azure:~$ ./make_predict_azure_app.sh
+Port: 443
+{"prediction":[20.35373177134412]}
+```
+
+#### Create Project Scaffolding:
    The scaffolding for the project and testing the code is created.
 
 <TODO:  
