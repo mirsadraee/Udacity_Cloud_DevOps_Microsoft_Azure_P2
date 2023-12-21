@@ -11,9 +11,9 @@ A pre-trained, sklearn model that has been trained to predict housing prices in 
 This project will operationalize a Python flask app—in a provided file, `app.py` that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
 
 
-![Overview](./images/CICD_Pipeline.png "Overview")
+<img src="./images/CICD_Pipeline.png" width="600">
 
-![Overview](./images/Agile_Project_Management.png "Overview")
+<img src="./images/Agile_Project_Management.png" width="600">
 
 ## Project Plan
 <TODO: Project Plan
@@ -25,7 +25,7 @@ This project will operationalize a Python flask app—in a provided file, `app.p
 
 ## Instructions
 ### CI: Set Up Azure Cloud Shell
-![ACS](./images/azure-cloud-shell.png "ACS")
+<img src="./images/azure-cloud-shell.png" width="600">
 
 #### Create the Cloud-Based Development Environment:
 
@@ -35,7 +35,7 @@ For connecting to Github repository, it is needed to generate a ssh-key:
 
 `ssh-keygen -t rsa`
 
-![ssh-key](./images/ssh-key.png "ssh-key")
+<img src="./images/ssh-key.png" width="600">
 
 to show ssh-key:
 
@@ -45,7 +45,7 @@ To clone the Github repository, following command has to be used in the Azure Cl
 
 `git clone git@github.com:mirsadraee/Udacity_Cloud_DevOps_Microsoft_Azure_P2.git`
 
-![git_clone](./images/git_clone.png "git_clone")
+<img src="./images/git_clone.png" width="600">
 
 A virtual environment has to be setup:
 
@@ -59,7 +59,7 @@ Install dependencies in th evirtual environment:
 
 `make all`
 
-![make_all](./images/make_all.png "make_all")
+<img src="./images/make_all.png" width="600">
 
 Now we can run the application in the trerminal susing:
 
@@ -71,7 +71,7 @@ As the application is now running, we have to open a new terminal and test the a
 
 The output is then:
 
-[ACS](./images/results_1.png "ACS")
+<img src="./images/results_1.png" width="600">
 
 we can check on the first terminal the progress of the applcaition:
 
