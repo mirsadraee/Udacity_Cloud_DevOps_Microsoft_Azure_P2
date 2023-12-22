@@ -35,7 +35,7 @@ For connecting to Github repository, it is needed to generate a ssh-key:
 
 `ssh-keygen -t rsa`
 
-<img src="./images/ssh-key.png" width="600">
+<img src="./images/ssh_key.png" width="600">
 
 to show ssh-key:
 
@@ -69,17 +69,9 @@ As the application is now running, we have to open a new terminal and test the a
 
 `./make_prediction.sh`
 
-The output is then:
+The output of the run is:
 
-<img src="./images/results_1.png" width="600">
-
-we can check on the first terminal the progress of the applcaition:
-
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
-```
+<img src="./images/make_prediction_out.png" width="600">
 
 #### Create Project Scaffolding:
    The scaffolding for the project and testing the code is created.
@@ -123,5 +115,3 @@ Port: 443
 ## Demo 
 
 <TODO: Add link Screencast on YouTube>
-
-

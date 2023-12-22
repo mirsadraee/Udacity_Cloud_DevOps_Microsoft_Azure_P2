@@ -27,11 +27,41 @@ def home():
 @app.route("/predict", methods=['POST'])
 def predict():
     # Performs an sklearn prediction
+    """Performs an sklearn prediction
+
+    input looks like:
+            {
+    "CHAS":{
+      "0":0
+    },
+    "RM":{
+      "0":6.575
+    },
+    "TAX":{
+      "0":296.0
+    },
+    "PTRATIO":{
+       "0":15.3
+    },
+    "B":{
+       "0":396.9
+    },
+    "LSTAT":{
+       "0":4.98
+    }
+
+    result looks like:
+    { "prediction": [ 20.35373177134412 ] }
+
+    """
+
     try:
+        LOG.info("The model is loaded!")
+
         # Load pretrained model as clf. Try any one model. 
         # clf = joblib.load("./Housing_price_model/LinearRegression.joblib")
         # clf = joblib.load("./Housing_price_model/StochasticGradientDescent.joblib")
-        clf = joblib.load("./Housing_price_model/GradientBoostingRegressor.joblib")
+        clf = joblib.load("./Housing_price_model/Boston_housing_predict.joblib")
     except:
         LOG.info("JSON payload: %s json_payload")
         return "Model not loaded"
