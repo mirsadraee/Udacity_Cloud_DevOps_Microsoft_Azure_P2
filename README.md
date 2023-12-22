@@ -93,6 +93,64 @@ The output of the run is:
 
 `az webapp up -n ndadma-webapp -g azuredevops`
 
+Next, create and configure the pipeline in Azure DevOps. More information on this process can be found here. The basic steps to set up the pipeline are:
+
+Go to https://dev.azure.com and sign in.
+Create a new private project.
+Under Project Settings create a new service connection to Azure Resource Manager, scoped to your subscription and resource group.
+Create a new pipeline (python to linux web app on azure)linked to your GitHub repo.
+
+<img src="./images/webapp.png" width="600">
+
+4. Verify the deployed application works by browsing to the deployed url
+Go to `https://<your-appservice>.azurewebsites.net/` and you should see the same output as in the screenshot below:
+
+Change the line in `make_predict_azure_app.sh` to match the deployed prediction:
+
+`-X POST https://<yourappname>.azurewebsites.net:$PORT/predic`
+
+A successful prediction will look like this:
+
+### CI/CD Part I - Setup Github Repo
+#### Choose an Application
+#### Set Up a Github Repo and Azure Login
+
+### CI/CD Part II - Create a WebApp Manually
+#### Create a Web App Manually
+<img src="./images/.png" width="600">
+
+### CI/CD Part III - SetUp Azure DevOps  Project
+#### Set up DevOps Project and Configure Service Connection
+
+### CI/CD Part IV - Azure Pipeline Agent
+#### Azure DevOps Pipeline Agent
+#### Create an Agent Pool
+
+<img src="./images/myAgentPool.png" width="600">
+
+#### Create an Agent (VM)
+#### Configure the Agent (VM) - Install Docker
+
+<img src="./images/myLinuxVM.png" width="600">
+
+#### Configure the Agent (VM) - Install Agent Services
+#### Application Specific Configuration
+
+<img src="./images/myAgentPool.png" width="600">
+
+### CI/CD Part V - Create a Pipeline
+#### Create a Starter Pipeline
+#### Add more Jobs to the Pipeline
+#### Add more Stages to the Pipeline
+#### 
+A Github repo having a sample application code.
+- Logged into the https://portal.azure.com/
+- Created a DevOps org and a project at https://dev.azure.com/
+- Created a Service connection in the DevOps project.
+- Your DevOps project should have a "self-hosted" Agent.
+
+
+
 * Running Azure App Service from Azure Pipelines automatic deployment
 
 * Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
@@ -106,7 +164,19 @@ Port: 443
 
 * Output of streamed log files from deployed application
 
-> 
+
+### CI: Configure GitHub Actions:
+
+<img src="./images/github_actions.png" width="600">
+
+running the `main.yaml` file results in  successfull result:
+
+<img src="./images/main_yaml.png" width="600">
+
+### Continuous Delivery on Azure
+
+<img src="./images/CD_Azrue.png" width="600">
+
 
 ## Enhancements
 
