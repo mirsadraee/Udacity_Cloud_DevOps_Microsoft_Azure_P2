@@ -8,16 +8,16 @@ trigger:
   
   variables:
     # Azure Resource Manager connection created during pipeline creation
-    azureServiceConnectionId: '1fa1b2b1-ea24-43ce-8dd8-af8735cb96a5'
+    azureServiceConnectionId: 'myServiceConnection'
   
     # Web app name
-    webAppName: 'udacity-azure-project2'
+    webAppName: 'cdma-webapp'
   
     # Agent VM image name
     vmImageName: 'ubuntu-latest'
   
     # Environment name
-    environmentName: 'udacity-azure-project2'
+    environmentName: 'cdma-webapp-env'
   
     # Project root folder. Point to the folder containing manage.py file.
     projectRoot: $(System.DefaultWorkingDirectory)
