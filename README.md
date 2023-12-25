@@ -35,45 +35,64 @@ An initial project structure is the setup of Azure Cloud Shell environment. A gi
 
 For connecting to GitHub repository, it is needed to generate a ssh-key:
 
-`ssh-keygen -t rsa`
+```
+ssh-keygen -t rsa
+```
 
 <img src="./images/ssh_key.png" width="600">
 
 The ssh-key can be retreived over the shell through:
 
-`cat ~/.ssh/id_rsa.pub`
+```
+cat ~/.ssh/id_rsa.pub
+```
 
 Now the key hgas to be added to the GitHub as new ssh-key.
 
 To clone the GitHub repository, following command has to be used in the Azure Cloud Shell:
 
-`git clone git@github.com:mirsadraee/Udacity_Cloud_DevOps_Microsoft_Azure_P2.git`
+```
+git clone git@github.com:mirsadraee/Udacity_Cloud_DevOps_Microsoft_Azure_P2.git
+```
 
 <img src="./images/git_clone.png" width="600">
 
 A virtual environment has to be setup:
 
-`make setup`
+```
+make setup
+```
 
 Activate the virtual environment:
 
-`source ~/.udacity-devops/bin/activate`
+```
+source ~/.udacity-devops/bin/activate
+```
 
 Install all dependencies and  running lint in th evirtual environment:
 
-`make all`
+```bash
+make all
+```
 
 <img src="./images/make_all.png" width="600">
 
 Now, we can run the application in the trerminal using:
 
-`python app.py`
+```bash
+python app.py
+```
+
+<img src="./images/app_py_run.png" width="600">
 
 As the application is now running, we have to open a new terminal and test the application, consider changeing the path to the correct one using:
 
-`cd Udacity_Cloud_DevOps_Microsoft_Azure_P2`
-
-`./make_prediction.sh`
+```bash
+cd Udacity_Cloud_DevOps_Microsoft_Azure_P2`
+```
+```bash
+./make_prediction.sh
+```
 
 The output of the run is:
 
@@ -84,13 +103,16 @@ The application can be  stopped using `Ctrl+C` in the first terminal.
 * Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
 Running Azure App Service from Azure Pipelines automatic deployment
 
-``` 
+```bash
 az webapp config set -g <your-resource-group> -n <your-appservice> --startup-file <your-startup-file-or-command>
 ```
 so the command has to be updated based on the resource group and app name, so:
+```bash
+az webapp up -n cdma-webapp -g azuredevops
 ```
-az webapp up -n ndadma-webapp -g azuredevops
-```
+
+<img src="./images/webapp.png" width="600">
+
 Next, create and configure the pipeline in Azure DevOps. More information on this process can be found here. The basic steps to set up the pipeline are:
 
 Go to https://dev.azure.com and sign in.
@@ -98,12 +120,13 @@ Create a new private project.
 Under Project Settings create a new service connection to Azure Resource Manager, scoped to your subscription and resource group.
 Create a new pipeline (python to linux web app on azure)linked to your GitHub repo.
 
-<img src="./images/webapp.png" width="600">
 
 Verify the deployed application works by browsing to the deployed url
-Go to `-X POST https://<yourappname>.azurewebsites.net:$PORT/predic` in the `make_predict_azure_app.sh`, a successful prediction will look like this:
+Go to line `-X POST https://<yourappname>.azurewebsites.net:$PORT/predic` in the `make_predict_azure_app.sh`, a successful prediction will look like this:
 
-<img src="./images/webapp.png" width="600">
+<img src="./images/webapp_azure.png" width="600">
+
+<img src="./images/webapp_run.png" width="600">
 
 ### CI: Configure GitHub Actions & Create a WebApp Manually
 Configuring a SaaS build server like GitHub Actions is an essential step for any software project that wants to apply DevOps best practices. This completes the final section of Continous Integration and enables us to then move on to the later step of Continuous Delivery once this is complete.
