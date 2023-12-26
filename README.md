@@ -285,6 +285,7 @@ locust
 - There should be a `locustfile.py` file in the repo that is a working example of the load test script specified in the instructions.
   
 - A running Locust for test against the deployed application is shown below:
+
 <img src="./images/locust_run.png" width="900">
 <img src="./images/locust_chart.png" width="900">
 
