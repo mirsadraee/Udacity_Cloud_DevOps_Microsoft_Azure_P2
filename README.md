@@ -1,4 +1,6 @@
 # Overview
+[![Python application test with Github Actions](https://github.com/mirsadraee/Udacity_Cloud_DevOps_Microsoft_Azure_P2/actions/workflows/main.yml/badge.svg)](https://github.com/mirsadraee/Udacity_Cloud_DevOps_Microsoft_Azure_P2/actions/workflows/main.yml)
+
 ## Cloud DevOps using Microsoft Azure - Second Project
 In this project:
 - A GitHub repository is built from scratch and a scaffolding is created that will assist in performing both `Continuous Integration` and `Continuous Delivery`. 
