@@ -140,25 +140,26 @@ The pipeline `azure-pipeline.yaml` for build and deploy:
 
 trigger:
   - main
+  - develop
   
   variables:
     # Azure Resource Manager connection created during pipeline creation
-    azureServiceConnectionId: '1fa1b2b1-ea24-43ce-8dd8-af8735cb96a5'
+    azureServiceConnectionId: 'myServiceConnection'
   
     # Web app name
-    webAppName: 'udacity-azure-project2'
+    webAppName: 'cdma-webapp'
   
     # Agent VM image name
     vmImageName: 'ubuntu-latest'
   
     # Environment name
-    environmentName: 'udacity-azure-project2'
+    environmentName: 'cdma-webapp'
   
     # Project root folder. Point to the folder containing manage.py file.
     projectRoot: $(System.DefaultWorkingDirectory)
   
-    # Python version: 3.7
-    pythonVersion: '3.7'
+    # Python version: 3.8
+    pythonVersion: '3.8'
   
   stages:
   - stage: Build
@@ -290,7 +291,7 @@ The project can be improved by considering future steps:
 - Increasing the load on the system to check the performance
 
 ## Demo 
-* See here for a YouTube video demonstrating the project.
+See here for a [YouTube video](https://youtu.be/H7jjnCLFWRI) demonstrating the project.
 
 ## Licensing, Authors, and Acknowledgements
 The data are taken for kaggle.com and a special thanks goes to Udacity for providing the data. The photos are partially taken from Udacity course as well.
