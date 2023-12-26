@@ -25,5 +25,5 @@ curl -d '{
    }
 }'\
      -H "Content-Type: application/json" \
-     -X POST https://cdma.azurewebsites.net:$PORT/predict 
+     -X POST https://cdma-webapp.azurewebsites.net:$PORT/predict 
      #your application name <yourappname>goes here

@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask.logging import create_logger
 import logging
+import traceback
 
 import pandas as pd
 import joblib
@@ -24,9 +25,8 @@ def home():
     return html.format(format)
 
 # TO DO:  Log out the prediction value
-@app.route("/predict", methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
-    # Performs an sklearn prediction
     """Performs an sklearn prediction
 
     input looks like:
@@ -56,15 +56,11 @@ def predict():
     """
 
     try:
-        LOG.info("The model is loaded!")
-
-        # Load pretrained model as clf. Try any one model. 
-        # clf = joblib.load("./Housing_price_model/LinearRegression.joblib")
-        # clf = joblib.load("./Housing_price_model/StochasticGradientDescent.joblib")
-        clf = joblib.load("./Housing_price_model/LinearRegression.joblib")
-    except:
-        LOG.info("JSON payload: %s json_payload")
-        return "Model not loaded"
+        clf = joblib.load("boston_housing_prediction.joblib")
+    except Exception as e:
+        LOG.error("Error loading model: %s", str(e))
+        LOG.error("Exception traceback: %s", traceback.format_exc())
+    return "Model not loaded"
 
     json_payload = request.json
     LOG.info("JSON payload: %s json_payload")
@@ -72,7 +68,8 @@ def predict():
     LOG.info("inference payload DataFrame: %s inference_payload")
     scaled_payload = scale(inference_payload)
     prediction = list(clf.predict(scaled_payload))
-    return jsonify({'prediction': prediction})
+    return jsonify({"prediction": prediction})
+
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
