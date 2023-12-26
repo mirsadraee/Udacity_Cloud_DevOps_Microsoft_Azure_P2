@@ -265,6 +265,8 @@ Or stream them:
 ```bash
 az webapp log tail
 ```
+The GitHub repo contains Azure CLI commands in a Bash script called `commands.sh,` including `az webapp up -g azuredevops -n cdma-webapp --sku F1`
+
 
 ### Load test using Locust
 - The Readme should have a screenshot of the application running against a load test with locust.
@@ -279,7 +281,7 @@ locust
 <img src="./images/Locust_Install.png" width="900">
 
 - There should be a `locustfile.py` file in the repo that is a working example of the load test script specified in the instructions.
-
+  
 - A running Locust for test against the deployed application is shown below:
 <img src="./images/locust_run.png" width="900">
 <img src="./images/locust_chart.png" width="900">
