@@ -1,18 +1,18 @@
-FROM python:3.7.3-stretch
+setup:
+	python3 -m venv ~/.udacity-devops
+	#source ~/.udacity-devops/bin/activate
+	
+install:
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
 
-# Working Directory
-WORKDIR /app
+test:
+	#python -m pytest -vv --cov=myrepolib tests/*.py
+	#python -m pytest --nbval notebook.ipynb
 
-# Copy source code to working directory
-COPY . app.py /app/
 
-# Install packages from requirements.txt
-# hadolint ignore=DL3013
-RUN pip install --upgrade pip &&\
-    pip install --trusted-host pypi.python.org -r requirements.txt
+lint:
+	#hadolint Dockerfile #uncomment to explore linting Dockerfiles
+	#pylint --disable=R,C,W1203,W0702 app.py
 
-# Expose port 80
-EXPOSE 80
-
-# Run app.py at container launch
-CMD ["python", "app.py"]
+all: install lint test
