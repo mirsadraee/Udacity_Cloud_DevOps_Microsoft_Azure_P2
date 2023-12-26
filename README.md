@@ -28,7 +28,7 @@ For project planning and management two usefull tools are `Trello` and `Excel` f
 
 The GitHub repository holds the application codes, then it will be triggered by Azure Pipeline for build and deplyment. The deployed model will be run on web application to service out the APIs or websites. A comprehensive figure of the process is shown in following figure:
 
-<img src="./images/CD_Azrue.png" width="900"> -->
+<img src="./images/CD_Azrue.png" width="900"> 
 
 
 ## Instructions for Project
@@ -51,7 +51,7 @@ The ssh-key can be retreived over the shell through:
 cat ~/.ssh/id_rsa.pub
 ```
 
-Now the key hgas to be added to the GitHub as new ssh-key.
+Now the key has to be added to the GitHub as new ssh-key.
 
 To clone the GitHub repository, following command has to be used in the Azure Cloud Shell:
 
@@ -73,7 +73,7 @@ Activate the virtual environment:
 source ~/.udacity-devops/bin/activate
 ```
 
-Install all dependencies and  running lint in th evirtual environment:
+Install all dependencies and running lint in the virtual environment:
 
 ```bash
 make all
@@ -81,7 +81,7 @@ make all
 
 <img src="./images/make_all.png" width="900">
 
-Now, we can run the application in the trerminal using:
+Now, we can run the application in the terminal using:
 
 ```bash
 python app.py
@@ -295,4 +295,3 @@ The project can be improved by considering future steps:
 ## Licensing, Authors, and Acknowledgements
 The data are taken for kaggle.com and a special thanks goes to Udacity for providing the data. The photos are partially taken from Udacity course as well.
 Special thanks for great mentoring and learning program. 
-
